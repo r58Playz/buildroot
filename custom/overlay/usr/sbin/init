@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -e /dev/pts/0 ]; then
+    exec >>/dev/pts/0 2>&1 </dev/pts/0
+else
+    exec >>/dev/tty0 2>&1 </dev/tty0
+fi
+exec terraos

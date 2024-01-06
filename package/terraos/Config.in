@@ -1,0 +1,8 @@
+config BR2_PACKAGE_TERRAOS
+	bool "terraos"
+	depends on BR2_PACKAGE_HOST_RUSTC_TARGET_ARCH_SUPPORTS
+	select BR2_PACKAGE_HOST_RUSTC
+	help
+	  Boot Linux-based operating systems from a RMA shim.
+
+	  https://github.com/r58Playz/terraos

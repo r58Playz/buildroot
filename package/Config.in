@@ -2821,4 +2821,9 @@ menu "Text editors and viewers"
 	source "package/vim/Config.in"
 endmenu
 
+menu "r58Playz's packages"
+	source "package/squashfs-fuse/Config.in"
+	source "package/terraos/Config.in"
+endmenu
+
 endmenu
