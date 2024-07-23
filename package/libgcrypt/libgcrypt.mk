@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LIBGCRYPT_VERSION = 1.10.3
+LIBGCRYPT_VERSION = 1.11.0
 LIBGCRYPT_SOURCE = libgcrypt-$(LIBGCRYPT_VERSION).tar.bz2
 LIBGCRYPT_LICENSE = LGPL-2.1+
 LIBGCRYPT_LICENSE_FILES = COPYING.LIB
@@ -31,4 +31,10 @@ ifeq ($(BR2_ARM_INSTRUCTIONS_THUMB),y)
 LIBGCRYPT_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -marm"
 endif
 
+HOST_LIBGCRYPT_DEPENDENCIES = host-libgpg-error
+HOST_LIBGCRYPT_CONF_OPTS = \
+	--disable-tests \
+	--with-gpg-error-prefix=$(HOST_DIR)
+
 $(eval $(autotools-package))
+$(eval $(host-autotools-package))
